@@ -1,6 +1,7 @@
 <template>
     <div>
         Todo: Show the product detail page here with the help of the product variable {{product.id}}
+        More information
 
     </div>
 </template>
