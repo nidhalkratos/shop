@@ -14,7 +14,7 @@
             <h1>5 stars</h1>
 
             <ColorPicker v-model="color" :colors="['#ff0000', '#00ff00', '#0000ff']" />
-            <SizeSelector />
+            <SizeSelector v-model="size" />
             
             <div>
               <button>Add to cart</button>
@@ -59,7 +59,8 @@ export default {
   data(){
     return {
       product : {},
-      color : null
+      color : null,
+      size : null
     }
   }
 }
