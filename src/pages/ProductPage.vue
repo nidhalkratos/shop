@@ -17,7 +17,7 @@
             <SizeSelector v-model="size" />
             
             <div>
-              <button>Add to cart</button>
+              <button class="bg-blue-500 p-2 rounded text-white">Add to cart</button>
             </div>
 
             <div>
