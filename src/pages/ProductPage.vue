@@ -2,18 +2,19 @@
     <div class="p-10">
         <div class="flex ">
           <div class="flex-1">
-            <img class="w-full" src="https://gmedia.playstation.com/is/image/SIEPDC/ps4-slim-image-block-01-en-24jul20?$native--t$" />
+            <img class="w-full" :src="product.image?.url" />
           </div>
           
           <!-- Description  -->
           <div class="flex-1">
             <div class="flex justify-between font-semibold mt-12">
-              <h1>Basic Tee</h1>
-              <h1>$35</h1>
+              <h1>{{product.title}}</h1>
+              <h1><span v-if="product.price?.currency == 'USD'">$</span>{{product.price?.amount}}<span v-if="product.price?.currency == 'EUR'">€</span></h1>
+
             </div>
             <h1>5 stars</h1>
 
-            <ColorPicker v-model="color" :colors="['#ff0000', '#00ff00', '#0000ff']" />
+            <ColorPicker v-model="color" :colors="product.colors" />
             <SizeSelector v-model="size" />
             
             <div>
@@ -21,7 +22,7 @@
             </div>
 
             <div>
-              Deserunt ut elit fugiat enim veniam nisi occaecat in velit. Enim excepteur deserunt ipsum ex tempor do esse sint ea minim pariatur exercitation anim commodo. Aliqua consectetur Lorem et sint officia. Occaecat aliquip anim esse incididunt id cupidatat irure. Nisi tempor labore non et cupidatat enim nulla esse nulla elit. Culpa id amet laborum ad qui est cillum eu culpa sit eiusmod.
+              {{product.description}}
             </div>
           </div>
         </div>
@@ -31,6 +32,7 @@
 </template>
 
 <script>
+import axios from 'axios'
 import ColorPicker from './components/ColorPicker.vue'
 import SizeSelector from './components/SizeSelector.vue'
 export default {
@@ -44,13 +46,9 @@ export default {
   },
   methods:{
     async load(id){
-      console.log(id);
       //Send a request to the backend with the product id and retrieve all the product information
 
-      let product = {
-        id  : id, 
-        title : 'TV'
-      };
+      let product = await axios.get('http://localhost:3000/product/' + id).then(resp => resp.data)
 
       this.product = product
     },  
