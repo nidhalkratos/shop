@@ -1,6 +1,6 @@
 <template>
     <div>
-        Size selection goes here
+        Size selection goes here To be implemented
     </div>
 
 </template>
