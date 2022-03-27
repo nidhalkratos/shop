@@ -1,9 +1,9 @@
 <template>
     <MenuBar/>
     <div class="p-10">
-        <div class="flex ">
+        <div class="flex space-x-4">
           <div class="flex-1">
-            <img class="w-full" :src="product.image?.url" />
+            <Images :images="product.images"/>
           </div>
           
           <!-- Description  -->
@@ -37,6 +37,7 @@ import axios from 'axios'
 import ColorPicker from './components/ColorPicker.vue'
 import SizeSelector from './components/SizeSelector.vue'
 import MenuBar from './components/MenuBar.vue'
+import Images from './components/Images.vue'
 
 
 
@@ -44,7 +45,8 @@ export default {
   components:{
     ColorPicker,
     SizeSelector,
-    MenuBar
+    MenuBar,
+    Images
   },
   async mounted(){
     let productId = this.$route.params.id
