@@ -1,4 +1,5 @@
 <template>
+    <MenuBar/>
     <div class="p-10">
         <div class="flex ">
           <div class="flex-1">
@@ -35,10 +36,15 @@
 import axios from 'axios'
 import ColorPicker from './components/ColorPicker.vue'
 import SizeSelector from './components/SizeSelector.vue'
+import MenuBar from './components/MenuBar.vue'
+
+
+
 export default {
   components:{
     ColorPicker,
-    SizeSelector
+    SizeSelector,
+    MenuBar
   },
   async mounted(){
     let productId = this.$route.params.id
